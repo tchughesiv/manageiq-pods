@@ -13,7 +13,8 @@ ENV container=docker \
     APPLIANCE_ROOT=/opt/manageiq/manageiq-appliance \
     SUI_ROOT=/opt/manageiq/manageiq-ui-service \ 
     CONTAINER_SCRIPTS_ROOT=/opt/manageiq/container-scripts \
-    IMAGE_VERSION=${REF}
+    IMAGE_VERSION=${REF} \
+    CONTAINER=true
 
 ## Atomic/OpenShift Labels
 LABEL name="manageiq" \
@@ -99,8 +100,7 @@ RUN ${APPLIANCE_ROOT}/setup && \
     mkdir -p ${CONTAINER_SCRIPTS_ROOT} && \
     mv /etc/httpd/conf.d/ssl.conf{,.orig} && \
     echo "# This file intentionally left blank. ManageIQ maintains its own SSL configuration" > /etc/httpd/conf.d/ssl.conf && \
-    cp ${APP_ROOT}/config/cable.yml.sample ${APP_ROOT}/config/cable.yml && \
-    echo "export CONTAINER=true" >> /etc/default/evm
+    cp ${APP_ROOT}/config/cable.yml.sample ${APP_ROOT}/config/cable.yml
 
 ## Change workdir to application root, build/install gems
 WORKDIR ${APP_ROOT}
