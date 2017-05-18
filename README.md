@@ -61,7 +61,7 @@ The default service account for your namespace (project) must be added to the pr
 _**As admin**_
 
 ```bash
-$ oadm policy add-scc-to-user privileged system:serviceaccount:<your-namespace>:default
+$ oadm policy add-scc-to-user anyuid system:serviceaccount:<your-namespace>:default
 ```
 
 Verify that your default service account is now included in the privileged scc
