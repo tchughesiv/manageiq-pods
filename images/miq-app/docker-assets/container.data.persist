@@ -4,3 +4,5 @@
 /var/www/miq/vmdb/config/database.yml
 /var/www/miq/vmdb/certs/v2_key
 /var/www/miq/vmdb/log
+/var/www/miq/vmdb/certs/server.cer
+/var/www/miq/vmdb/certs/server.cer.key
